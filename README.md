@@ -1,2 +1,2 @@
-# ADP3 Group14 school_management
+# ADP3 Group14
 # School Management System
