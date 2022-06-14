@@ -59,17 +59,17 @@ public class City {
         private String id, name;
         private Country country;
 
-        public Builder Id(String id) {
+        public Builder setId(String id) {
             this.id = id;
             return this;
         }
 
-        public Builder Name(String name) {
+        public Builder setName(String name) {
             this.name = name;
             return this;
         }
 
-        public Builder Country(Country country) {
+        public Builder setCountry(Country country) {
             this.country = country;
             return this;
         }
