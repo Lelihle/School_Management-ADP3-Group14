@@ -5,11 +5,21 @@ Date:june 2022
  */
 package za.ac.cput.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.persistence.Embeddable;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Country {
-    private String id;
-    private String name;
+
+@Embeddable
+public class Country implements Serializable {
+    @NotNull @Id private String id;
+    @NotNull private String name;
+
+    protected Country() {
+    }
 
     private Country(Builder builder) {
         this.id = builder.id;
