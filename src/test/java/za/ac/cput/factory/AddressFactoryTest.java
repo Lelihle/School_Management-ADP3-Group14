@@ -2,7 +2,7 @@ package za.ac.cput.factory;
 /*AddressFactoryTest.java
 Factory test for the Address
 Author: 214258041_Lelihle Gazi
- 13/06/2022
+13/06/2022
  */
 
 import org.junit.jupiter.api.Test;
@@ -25,7 +25,7 @@ class AddressFactoryTest {
                     .build("B4","Nirvana",null, "Wood Drive", 7785, city));
 
             String exceptionMessage = exception.getMessage();
-            System.out.println("exceptionMessage");
+            System.out.println(exceptionMessage);
             assertSame("Street Number is required",exceptionMessage);
 
         }
@@ -36,7 +36,7 @@ class AddressFactoryTest {
                 .build("B4","Nirvana","80", "Wood Drive", 10000, city));
 
         String exceptionMessage = exception.getMessage();
-        System.out.println("exceptionMessage");
+        System.out.println(exceptionMessage);
         assertSame("Postal Code must be between 1000 and 9999",exceptionMessage);
 
     }
