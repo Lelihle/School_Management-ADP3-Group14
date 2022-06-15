@@ -31,7 +31,4 @@ public class Helper {
             throw new IllegalArgumentException("invalid details provided");
         return id;
     }
-
-    public static void checkFirstName(String firstName) {
-    }
 }
