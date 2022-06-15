@@ -9,12 +9,14 @@ public class NameFactoryTest {
 
     @Test
     void buildWithErrors(){
+      //  Name name = NameFactory;
         Exception exception = assertThrows(IllegalArgumentException.class, () ->
-                NameFactory.build("", "", ""));
-        System.out.println(exception.getMessage());
-        assertTrue(exception.getMessage().contains("Name"));
+                NameFactory.build("jgjfhjg" , "princess", null));
+        String exceptionMessage = exception.getMessage();
+        System.out.print(exceptionMessage);
+    //   assertSame("Invalid value for param: surname",exceptionMessage);
     }
-    
+
     @Test
     void buildWithSuccess(){
         Name name = NameFactory
