@@ -1,10 +1,15 @@
 package za.ac.cput.domain;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
 public class EmployeeAddress implements Serializable {
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "staffId")
     private String staffId;
-    private Address address;
+
+    @Embedded private Address address;
 
     public EmployeeAddress() {
     }
