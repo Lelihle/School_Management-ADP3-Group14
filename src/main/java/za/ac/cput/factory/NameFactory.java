@@ -7,15 +7,15 @@ import za.ac.cput.util.Helper;
 public class NameFactory {
     public static Name build (String firstName, String middleName, String surname){
         Helper.checkStringParam("firstName", firstName);
-        Helper.checkStringParam("middleName", middleName);
         Helper.checkStringParam("surname", surname);
+       // Helper.isEmptyOrNull(surname);
+        Helper.checkFirstName(firstName);
+
         return new Name.Builder().firstName(firstName)
                 .middleName(middleName)
                 .surname(surname)
                 .build();
     }
+    //khbhhjb
 
-    public static Name.NameId build(Name name){
-        return new Name.NameId(name.getFirstName(), name.getMiddleName(), name.getSurname());
-    }
 }
