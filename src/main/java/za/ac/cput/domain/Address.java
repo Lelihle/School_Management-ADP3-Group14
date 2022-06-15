@@ -4,16 +4,20 @@ Entity for the Address
 Author: 214258041_Lelihle Gazi
 10/06/2022
  */
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Embeddable;
 
+@Embeddable
+public class Address implements Serializable {
 
-public class Address {
-    private String unitNumber;
-    private String complexName;
-    private String streetNumber;
-    private String streetName;
-    private int postalCode;
-    private City city;
+   @NotNull private String unitNumber;
+   @NotNull private String complexName;
+   @NotNull private String streetNumber;
+   @NotNull private String streetName;
+   @NotNull private int postalCode;
+   @NotNull private City city;
 
     protected Address(){
 
@@ -32,26 +36,49 @@ public class Address {
         return unitNumber;
     }
 
+    public void setUnitNumber(String unitNumber) {
+        this.unitNumber = unitNumber;
+    }
+
     public String getComplexName() {
         return complexName;
+    }
+
+    public void setComplexName(String complexName) {
+        this.complexName = complexName;
     }
 
     public String getStreetNumber() {
         return streetNumber;
     }
 
+    public void setStreetNumber(String streetNumber) {
+        this.streetNumber = streetNumber;
+    }
+
     public String getStreetName() {
         return streetName;
+    }
+
+    public void setStreetName(String streetName) {
+        this.streetName = streetName;
     }
 
     public int getPostalCode() {
         return postalCode;
     }
 
+    public void setPostalCode(int postalCode) {
+        this.postalCode = postalCode;
+    }
+
     public City getCity() {
         return city;
     }
 
+    public void setCity(City city) {
+        this.city = city;
+    }
 
     @Override
     public boolean equals(Object o)
