@@ -4,9 +4,9 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity
 public class EmployeeAddress implements Serializable {
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "staffId")
+    @Id
     private String staffId;
 
     @Embedded private Address address;
