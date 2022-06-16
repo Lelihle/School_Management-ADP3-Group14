@@ -11,7 +11,7 @@ public class EmployeeAddressFactory {
         if(address == null){
             throw new IllegalArgumentException("Address is null");
         }
-        return new EmployeeAddress.Builder().StaffId(staffId).Address(address).build();
+        return new EmployeeAddress.Builder().StaffId(staffId, address).Address(address).build();
     }
 /*
     public static EmployeeAddress.EmployeeAddressId buildId(EmployeeAddress employeeAddress){
