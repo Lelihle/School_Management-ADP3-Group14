@@ -19,14 +19,14 @@ public class CityServiceImpl implements ICityService {
         this.repository = repository;
     }
 
-//(*_+)
+    //(*_+)
     @Override
     public City save(City city) {
         return city;
     }
-    //(*_+)
+
     @Override
-    public Optional<City> read(String s) {
+    public Optional<City> read(String id) {
         return Optional.empty();
     }
 
@@ -40,8 +40,10 @@ public class CityServiceImpl implements ICityService {
         this.repository.delete(city);
     }
 
+    //(//_//)
     @Override
     public List<Country> findAll() {
         return this.repository.findAll();
     }
+
 }
