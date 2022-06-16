@@ -7,9 +7,11 @@ import java.util.Objects;
 @Entity
 public class EmployeeAddress implements Serializable {
     @Id
+    @NotNull
     private String staffId;
 
-    @Embedded private Address address;
+    @Embedded
+    private Address address;
 
     public EmployeeAddress() {
     }
@@ -71,7 +73,7 @@ public class EmployeeAddress implements Serializable {
         private String staffId;
         private Address address;
 
-        public Builder StaffId(String staffId) {
+        public Builder StaffId(String staffId, Address address) {
             this.staffId = staffId;
             return this;
         }

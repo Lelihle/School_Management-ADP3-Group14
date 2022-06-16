@@ -40,17 +40,17 @@ public class EmployeeAddressController {
     }
 
     @GetMapping("readEmployeeAddress/{staffID}")
-    public ResponseEntity<EmployeeAddress> read(@PathVariable String staffId){
-        log.info("Read request: {}",staffId);
+    public ResponseEntity<Optional<EmployeeAddress>> read(@PathVariable String staffID){
+        log.info("Read request: {}",staffID);
 
         try {
-            Optional<EmployeeAddress> readEmployeeAddress = repository.read(staffId);
-            //return ResponseEntity.ok(readEmployeeAddress);
+            Optional<EmployeeAddress> readEmployeeAddress = repository.read(staffID);
+            return ResponseEntity.ok(readEmployeeAddress);
 
         }catch(IllegalArgumentException e){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
         }
-    return null;}
+    }
 
     @DeleteMapping("deleteEmployeeAddress/{staffId}")
     public ResponseEntity<EmployeeAddress> delete(@PathVariable String staffId){
@@ -66,6 +66,4 @@ public class EmployeeAddressController {
         List<EmployeeAddress> list = this.repository.findAll();
         return ResponseEntity.ok(list);
     }
-
-
 }
