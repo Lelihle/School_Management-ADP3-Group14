@@ -15,7 +15,7 @@ class EmployeeAddressFactoryTest {
     @Test
     void buildWorking() {
 
-        EmployeeAddress employeeAddress = EmployeeAddressFactory.build("1",address);
+        EmployeeAddress employeeAddress = EmployeeAddressFactory.build("1",new Address());
         System.out.println(employeeAddress);
         assertNotNull(employeeAddress);
     }
