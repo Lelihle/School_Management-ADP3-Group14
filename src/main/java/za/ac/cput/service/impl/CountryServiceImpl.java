@@ -1,6 +1,7 @@
 package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Country;
 import za.ac.cput.repository.ICountryRepository;
 import za.ac.cput.service.ICountryService;
@@ -8,6 +9,7 @@ import za.ac.cput.service.ICountryService;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class CountryServiceImpl implements ICountryService {
     private final ICountryRepository repository;
 
@@ -26,6 +28,7 @@ public class CountryServiceImpl implements ICountryService {
         return this.repository.findById(s);
     }
 
+
     @Override
     public void delete(Country country) {
     this.repository.delete(country);
@@ -37,13 +40,11 @@ public class CountryServiceImpl implements ICountryService {
     }
 
     @Override
-    public void delete(String s) {
-
-    }
+    public void delete(String s) {}
 
     @Override
     public void deleteById(String id){
-        repository.deleteById(id);
+        //repository.deleteById(id);
         Optional<Country> country= read(id);
         country.ifPresent(this::delete);
     }
