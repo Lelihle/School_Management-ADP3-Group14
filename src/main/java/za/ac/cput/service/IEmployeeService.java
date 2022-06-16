@@ -10,5 +10,5 @@ import za.ac.cput.domain.Employee;
 import java.util.List;
 
 public interface IEmployeeService extends IService<Employee,String> {
-    public List<Employee> readAll();
+    List<Employee> readAll();
 }
