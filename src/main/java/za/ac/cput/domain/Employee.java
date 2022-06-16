@@ -12,8 +12,7 @@ public class Employee implements Serializable
     private String staffId;
     @NotNull
     private String email;
-    @OneToOne
-    @JoinColumn(name = "emp_name",nullable = false)
+   @Embedded
     private Name name;//Error as Name entity must be created
 
     protected Employee(){
