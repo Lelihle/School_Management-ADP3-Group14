@@ -7,3 +7,4 @@ public interface IService <T, ID> {
     Optional <T> read(ID id);
     void delete(ID id);
 }
+
