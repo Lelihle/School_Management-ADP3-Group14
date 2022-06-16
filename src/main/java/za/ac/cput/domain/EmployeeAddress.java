@@ -10,7 +10,8 @@ public class EmployeeAddress implements Serializable {
     @NotNull
     private String staffId;
 
-    @Embedded private Address address;
+    @Embedded
+    private Address address;
 
     public EmployeeAddress() {
     }

@@ -20,7 +20,7 @@ public class EmployeeAddressServiceImpl implements IEmployeeAddressService {
 
     @Override
     public List<EmployeeAddress> findAll() {
-    return this.repository.findAll();
+        return this.repository.findAll();
     }
 
     @Override

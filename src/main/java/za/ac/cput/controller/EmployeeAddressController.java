@@ -66,6 +66,4 @@ public class EmployeeAddressController {
         List<EmployeeAddress> list = this.repository.findAll();
         return ResponseEntity.ok(list);
     }
-
-
 }
