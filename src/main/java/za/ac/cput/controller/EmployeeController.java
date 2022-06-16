@@ -11,6 +11,7 @@ import za.ac.cput.service.IEmployeeService;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("School_Management-ADP3-Group14/employee/")
@@ -38,11 +39,11 @@ public class EmployeeController {
     }
 
     @GetMapping("readEmployee/{employeeID}")
-    public ResponseEntity<Employee> read(@PathVariable String employeeID){
+    public ResponseEntity<Optional<Employee>> read(@PathVariable String employeeID){
         log.info("Read request: {}",employeeID);
 
         try {
-            Employee readEmployee = repository.read(employeeID);
+            Optional<Employee> readEmployee = repository.read(employeeID);
             return ResponseEntity.ok(readEmployee);
 
         }catch(IllegalArgumentException e){
