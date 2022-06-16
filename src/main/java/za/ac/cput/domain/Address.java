@@ -4,6 +4,7 @@ Entity for the Address
 Author: 214258041_Lelihle Gazi
 10/06/2022
  */
+import javax.persistence.Embedded;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
@@ -17,7 +18,8 @@ public class Address implements Serializable {
    @NotNull private String streetNumber;
    @NotNull private String streetName;
    @NotNull private int postalCode;
-   @NotNull private City city;
+   @Embedded
+   private City city;
 
     protected Address(){
 
