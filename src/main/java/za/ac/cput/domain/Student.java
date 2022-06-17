@@ -1,6 +1,9 @@
+/* Student.java
+Author: Chante Lewis:216118395
+12/06/2022
+ */
 package za.ac.cput.domain;
 
-import javax.lang.model.element.Name;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,11 +13,12 @@ import java.util.Objects;
 @Entity
 public class Student {
 
+
     @NotNull
     @Id
     private String studentId;
-    @NotNull private String email;
-
+    @NotNull
+    private String email;
     @Embedded
     private Name name;
 
@@ -23,13 +27,14 @@ public class Student {
     private Student(Builder builder){
         this.studentId = builder.studentId;
         this.email = builder.email;
+        this.name = name;
     }
 
     public String getStudentId() {return studentId;}
 
     public String getEmail() {return email;}
 
-    public Name getName() {return name;}
+    public za.ac.cput.domain.Name getName() {return name;}
 
 
     @Override
@@ -37,6 +42,7 @@ public class Student {
         return "Student{" +
                 "studentId='" + studentId + '\'' +
                 ", email='" + email + '\'' +
+                ", name=" + name +
                 '}';
     }
 
@@ -45,17 +51,18 @@ public class Student {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return studentId.equals(student.studentId) && email.equals(student.email);
+        return studentId.equals(student.studentId) && email.equals(student.email) && name.equals(student.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(studentId, email);
+        return Objects.hash(studentId, email, name);
     }
 
     public static class Builder{
         private String studentId;
         private String email;
+        private Name name;
 
         public Student.Builder studentId(String studentId) {
             this.studentId = studentId;
@@ -67,9 +74,15 @@ public class Student {
             return this;
         }
 
+        public Student.Builder name(Name name) {
+            this.name = name;
+            return this;
+        }
+
         public Builder copy(Student student){
             this.studentId= student.studentId;
             this.email = student.email;
+            this.name = name;
             return this;
         }
 
