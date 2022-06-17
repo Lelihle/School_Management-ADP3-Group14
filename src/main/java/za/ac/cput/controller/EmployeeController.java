@@ -71,6 +71,7 @@ public class EmployeeController {
         return ResponseEntity.ok(list);
     }
 
+    //Question 5
     @GetMapping("readEmployeeByEmail/{employeeEmail}")
     public ResponseEntity<Optional<Employee>> getEmployeeByEmail(@RequestParam String email) {
         log.info("readEmployeeByEmail request: {}", email);
