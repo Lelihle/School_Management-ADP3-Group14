@@ -9,7 +9,6 @@ import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -18,14 +17,13 @@ import java.util.Objects;
 @Entity
 public class City implements Serializable {
 
-    @NotNull @Id
+    @Id
     private String id;
-    @NotNull
     private String name;
-    @Embedded @NotNull
+    @Embedded
     private Country country;
 
-    protected City() {}
+    public City() {}
 
     private City(Builder builder){
         this.id = builder.id;
