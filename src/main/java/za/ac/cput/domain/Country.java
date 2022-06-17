@@ -5,15 +5,15 @@ Date:june 2022
  */
 package za.ac.cput.domain;
 
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-import javax.persistence.Embeddable;
-import java.io.Serializable;
 import java.util.Objects;
 
-@Entity
+
 @Embeddable
+@Entity
 public class Country{
     @Id private String id;
     @NotNull private String name;
