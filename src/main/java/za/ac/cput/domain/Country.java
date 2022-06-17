@@ -15,7 +15,7 @@ import java.util.Objects;
 @Entity
 @Embeddable
 public class Country{
-    @NotNull @Id private String id;
+    @Id private String id;
     @NotNull private String name;
 
     protected Country() {

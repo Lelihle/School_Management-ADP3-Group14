@@ -13,15 +13,19 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
-//@Entity
+
 @Embeddable
+@Entity
 public class City implements Serializable {
 
-    @NotNull @Id private String id;
-    @NotNull private String name;
-    @Embedded private Country country;
+    @NotNull @Id
+    private String id;
+    @NotNull
+    private String name;
+    @Embedded @NotNull
+    private Country country;
 
-    public City() {}
+    protected City() {}
 
     private City(Builder builder){
         this.id = builder.id;
@@ -41,6 +45,14 @@ public class City implements Serializable {
         return country;
     }
 
+    @Override
+    public String toString() {
+        return "City{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", country=" + country +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -55,14 +67,7 @@ public class City implements Serializable {
         return Objects.hash(id, name, country);
     }
 
-    @Override
-    public String toString() {
-        return "City{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", country=" + country +
-                '}';
-    }
+
 
 
     public static class Builder{
