@@ -1,5 +1,10 @@
 package za.ac.cput.domain;
-
+/*
+Mogamad Taariq Phillips (220166153)
+ADP3 - June Assessment 2022
+Date: 13 June 2022
+School Management
+ */
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.*;
