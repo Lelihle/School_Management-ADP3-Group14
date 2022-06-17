@@ -2,22 +2,20 @@ package za.ac.cput.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.io.*;
 import java.util.*;
 
 @Entity
-public class Employee implements Serializable
+public class Employee
 {
     @Id @NotNull
     private String staffId;
     @NotNull
     private String email;
-    @OneToOne
-    @JoinColumn(name = "emp_name",nullable = false)
-    private Name name;//Error as Name entity must be created
+    @Embedded
+    private Name name;
+
 
     protected Employee(){
-        //constructor
     }
 
     private Employee(Builder b){
@@ -38,6 +36,9 @@ public class Employee implements Serializable
         return name;
     }
 
+    public void setName(Name name) {
+        this.name = name;
+    }
     @Override
     public String toString() {
         return "Employee{" +

@@ -65,4 +65,17 @@ public class EmployeeController {
         List<Employee> list = this.repository.readAll();
         return ResponseEntity.ok(list);
     }
+
+    @GetMapping("readEmployeeByEmail/{employeeEmail}")
+    public ResponseEntity<Optional<Employee>> getEmployeeByEmail(@RequestParam String email) {
+        log.info("readEmployeeByEmail request: {}", email);
+
+        try {
+            Optional<Employee> readEmployeeByEmail = repository.findEmployeeByEmail(email);
+            return ResponseEntity.ok(readEmployeeByEmail);
+
+        }catch(IllegalArgumentException e){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+        }
+    }
 }
