@@ -12,10 +12,10 @@ import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Objects;
 
-
+@Entity
 @Embeddable
-public class Country implements Serializable {
-    @NotNull @Id private String id;
+public class Country{
+    @Id private String id;
     @NotNull private String name;
 
     protected Country() {
