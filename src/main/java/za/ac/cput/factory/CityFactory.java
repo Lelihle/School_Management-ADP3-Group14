@@ -10,7 +10,7 @@ import za.ac.cput.domain.Country;
 import za.ac.cput.util.Helper;
 
 public class CityFactory {
-    public static City builder (String id,String name, Country country){
+    public static City build (String id,String name, Country country){
         Helper.checkStringParam("id", id);
         Helper.checkStringParam("name", name);
         Helper.checkIfObjectNull("Country",country);
