@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.domain.City;
-import za.ac.cput.domain.Country;
 import za.ac.cput.service.ICityService;
 
 import javax.validation.Valid;
@@ -54,8 +53,8 @@ public class CityController {
 
     //(//_//)
     @GetMapping("Read City-All")
-    public ResponseEntity<List<Country>> findAll() {
-        List<Country> list = this.iCityService.findAll();
+    public ResponseEntity<List<City>> findAll() {
+        List<City> list = this.iCityService.findAll();
         return ResponseEntity.ok(list);
 
     }
