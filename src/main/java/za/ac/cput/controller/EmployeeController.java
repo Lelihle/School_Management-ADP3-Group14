@@ -1,5 +1,10 @@
 package za.ac.cput.controller;
-
+/*
+Mogamad Taariq Phillips (220166153)
+ADP3 - June Assessment 2022
+Date: 17 June 2022
+School Management
+ */
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
