@@ -63,6 +63,7 @@ Improvements that could be made to assignemt.
 - Read,Update,Delete anomalies
 - Flawed design = more expensive and complex to handle 
 - Loose coupling instead of tightly cooupling to make entities dependable
+- The entities on the UML are tightly connected, which means they are reliant on one another, limiting their flexibility. Instead than being a value object, Address should have been a complete entity. This would allow StudentAddress and EmployeeAddress to act as a bridge entity, as it should when two Entities share a composite key. Employee and EmployeeAddress will become a OneToMany relationship, while Student and StudentAddress will become a OneToMany relationship.
 
 
 
