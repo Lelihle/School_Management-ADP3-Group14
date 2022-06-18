@@ -43,6 +43,7 @@ public class CityServiceImpl implements ICityService {
        delete(city.get());
     }
 
+    //Q7 TITILAYO AKINJOLE 220283982
     @Override
     public List<City> findAllCities(){
         return this.ICityRepository.findAll();
