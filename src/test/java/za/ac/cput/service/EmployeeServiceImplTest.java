@@ -106,6 +106,7 @@ class EmployeeServiceImplTest {
         System.out.println(repository.findAll());
     }
 
+    //Question 5
     @Order(3)
     @Test
     void findEmployeeByEmail() {
@@ -119,8 +120,8 @@ class EmployeeServiceImplTest {
                 () -> assertNotEquals(employee1.getStaffId(),employee2.getStaffId())
         );
 
-        System.out.println(employee1.toString());
-        System.out.println(employee2.toString());
+        System.out.println(employee1.getName());
+        System.out.println(employee2.getName());
 
     }
 }

@@ -13,7 +13,6 @@ import java.util.Optional;
 
 @Repository
 public interface IEmployeeRepository extends JpaRepository<Employee, String> {
+    //Question 5
     Optional<Employee> findEmployeeByEmail(String email);
-
-    boolean existsByEmail(String email);
 }

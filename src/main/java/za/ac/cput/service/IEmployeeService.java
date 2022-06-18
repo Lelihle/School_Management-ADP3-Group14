@@ -12,5 +12,6 @@ import java.util.Optional;
 
 public interface IEmployeeService extends IService<Employee,String> {
     List<Employee> readAll();
+    //Question 5
     Optional<Employee> findEmployeeByEmail(String email);
 }
