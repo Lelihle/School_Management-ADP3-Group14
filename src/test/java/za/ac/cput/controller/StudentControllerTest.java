@@ -11,6 +11,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import za.ac.cput.domain.Employee;
 import za.ac.cput.domain.Name;
 import za.ac.cput.domain.Student;
 import za.ac.cput.factory.NameFactory;
@@ -83,6 +84,19 @@ class StudentControllerTest {
         System.out.println(url);
         ResponseEntity<Student[]> response =
                 this.restTemplate.getForEntity(url, Student[].class);
+        System.out.println(Arrays.asList(response.getBody()));
+        assertAll(
+                ()-> assertEquals(HttpStatus.OK, response.getStatusCode()),
+                ()-> assertTrue(response.getBody().length == 0)
+        );
+
+    }
+
+    @Order(5)
+    @Test
+    void getStudentsByName_Surname() {
+        String url = baseUrl + "getStudentsByName_Surname";
+        ResponseEntity<Student[]> response = this.restTemplate.getForEntity(url, Student[].class);
         System.out.println(Arrays.asList(response.getBody()));
         assertAll(
                 ()-> assertEquals(HttpStatus.OK, response.getStatusCode()),

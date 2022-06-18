@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.domain.Student;
+import za.ac.cput.domain.StudentAddress;
 import za.ac.cput.service.IStudentService;
 import javax.validation.Valid;
 import java.util.List;
@@ -21,6 +22,7 @@ import java.util.List;
 public class StudentController {
 
     private IStudentService iStudentService;
+
     @Autowired
     public StudentController(IStudentService iStudentService) {
         this.iStudentService = iStudentService;
@@ -58,5 +60,18 @@ public class StudentController {
     public ResponseEntity<List<Student>> findAll() {
         List<Student> student = this.iStudentService.findAll();
         return ResponseEntity.ok(student);
+    }
+
+    @GetMapping("readByStudentsByName_Surname/{studentSurname}")
+    public ResponseEntity<List<Student>> getStudentsByName_Surname(@RequestParam String surname) {
+        log.info("readByStudentsByName_Surname request: {}", surname);
+
+        try {
+            List<Student> readByStudentsByName_Surname = iStudentService.findStudentsByName_Surname(surname);
+            return ResponseEntity.ok(readByStudentsByName_Surname);
+
+        } catch (IllegalArgumentException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+        }
     }
 }

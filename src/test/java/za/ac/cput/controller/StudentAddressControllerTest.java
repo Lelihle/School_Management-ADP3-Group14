@@ -11,10 +11,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.domain.Address;
-import za.ac.cput.domain.City;
-import za.ac.cput.domain.Country;
-import za.ac.cput.domain.StudentAddress;
+import za.ac.cput.domain.*;
 import za.ac.cput.factory.AddressFactory;
 import za.ac.cput.factory.CityFactory;
 import za.ac.cput.factory.CountryFactory;
@@ -29,19 +26,20 @@ class StudentAddressControllerTest {
     private int port;
     @Autowired
     private StudentAddressController controller;
-    @Autowired private TestRestTemplate restTemplate;
+    @Autowired
+    private TestRestTemplate restTemplate;
     private StudentAddress studentAddress;
-    private  String baseUrl;
+    private String baseUrl;
 
-    public static Country country = CountryFactory.build("20111","South African");
-    public static City city = CityFactory.build("10111","Saldanha",country);
-    public static Address address = AddressFactory.build("12","seacrest","104","Flurry",7395,city);
+    public static Country country = CountryFactory.build("20111", "South African");
+    public static City city = CityFactory.build("10111", "Saldanha", country);
+    public static Address address = AddressFactory.build("12", "seacrest", "104", "Flurry", 7395, city);
 
     @BeforeEach
     void setUp() {
         assertNotNull(controller);
-        this.studentAddress = StudentAddressFactory.build("test-num",address);
-        this.baseUrl = "http://localhost:" + this.port +"/school_management/student/";
+        this.studentAddress = StudentAddressFactory.build("test-num", address);
+        this.baseUrl = "http://localhost:" + this.port + "/school_management/student/";
     }
 
     @Test
@@ -53,8 +51,8 @@ class StudentAddressControllerTest {
                 .postForEntity(url, this.studentAddress, StudentAddress.class);
         System.out.println(response);
         assertAll(
-                ()-> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                ()-> assertNotNull(response.getBody())
+                () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
+                () -> assertNotNull(response.getBody())
         );
     }
 
@@ -63,11 +61,11 @@ class StudentAddressControllerTest {
     void read() {
         String url = baseUrl + "read/" + this.studentAddress.getStudentId();
         System.out.println(url);
-        ResponseEntity<StudentAddress> response = this.restTemplate.getForEntity(url,StudentAddress.class);
+        ResponseEntity<StudentAddress> response = this.restTemplate.getForEntity(url, StudentAddress.class);
         System.out.println(response);
         assertAll(
-                ()-> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                ()-> assertNotNull(response.getBody())
+                () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
+                () -> assertNotNull(response.getBody())
         );
     }
 
@@ -88,9 +86,21 @@ class StudentAddressControllerTest {
                 this.restTemplate.getForEntity(url, StudentAddress[].class);
         System.out.println(Arrays.asList(response.getBody()));
         assertAll(
-                ()-> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                ()-> assertTrue(response.getBody().length == 0)
+                () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
+                () -> assertTrue(response.getBody().length == 0)
         );
 
+    }
+
+    @Order(5)
+    @Test
+    void getAddressByCityCountry() {
+        String url = baseUrl + "getAddressByCityCountry";
+        ResponseEntity<Student[]> response = this.restTemplate.getForEntity(url, Student[].class);
+        System.out.println(Arrays.asList(response.getBody()));
+        assertAll(
+                () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
+                () -> assertTrue(response.getBody().length == 0)
+        );
     }
 }

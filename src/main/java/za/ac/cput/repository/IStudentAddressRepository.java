@@ -13,6 +13,7 @@ import java.util.List;
 
 @Repository
 public interface IStudentAddressRepository extends JpaRepository<StudentAddress,String> {
+    List <StudentAddress> findByAddressCityCountryName (String name);
 }
 
 
