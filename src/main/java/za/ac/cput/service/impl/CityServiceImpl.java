@@ -22,8 +22,8 @@ public class CityServiceImpl implements ICityService {
     @Override
     public Optional<City> read(String id) {return this.repository.findById(id);}
 //(0_())
-    @Override
-    public void delete(String s) {}
+//    @Override
+//    public void delete(String s) {}
 
     @Override
     public void delete(City city) {this.repository.delete(city);}
