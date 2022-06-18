@@ -37,6 +37,13 @@ public class StudentServiceImpl implements IStudentService {
     //Delete operation
     public void delete(Student student) {this.repository.delete(student);}
 
+    //Delete by studentId
+    @Override
+    public void deleteByID(String id) {
+        Optional<Student> student = read(id);
+        if(student.isPresent()) delete (student.get());
+    }
+
     //Read all operation
     public List<Student> findAll() {return this.repository.findAll();}
 
