@@ -43,4 +43,9 @@ public class EmployeeAddressServiceImpl implements IEmployeeAddressService {
     public void delete(String id) {
         this.repository.deleteById(id);
     }
+
+    @Override
+    public void delete(EmployeeAddress employeeAddress) {
+        this.repository.delete(employeeAddress);
+    }
 }

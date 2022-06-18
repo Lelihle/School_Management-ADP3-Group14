@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class CityServiceImplTest {
     private final Country country = CountryFactory.build("Planet", "Mars");
-    private final City city = CityFactory.builder("12345", "DumpstaCity", country);
+    private final City city = CityFactory.build("12345", "DumpstaCity", country);
     @Autowired
     private ICityService service;
 

@@ -56,11 +56,11 @@ public class EmployeeController {
         }
     }
 
-    @DeleteMapping("deleteEmployee/{employeeID}")
-    public ResponseEntity<Employee> delete(@PathVariable String employeeID){
-        log.info("Delete request: {}",employeeID);
+    @DeleteMapping("deleteEmployee/{employee}")
+    public ResponseEntity<Employee> delete(@PathVariable Employee employee){
+        log.info("Delete request: {}",employee);
 
-        this.repository.delete(employeeID);
+        this.repository.delete(employee);
         return ResponseEntity.noContent().build();
 
     }
