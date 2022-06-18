@@ -9,7 +9,7 @@ class CityFactoryTest {
 
     @Test
     void createCity(){
-        City cityCreated = CityFactory.builder("12345","Cape Town", CountryFactory.build("12345","Mars"));
+        City cityCreated = CityFactory.build("12345","Cape Town", CountryFactory.build("12345","Mars"));
         assertNotNull(cityCreated);
         System.out.println(cityCreated);
     }

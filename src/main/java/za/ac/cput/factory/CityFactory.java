@@ -11,13 +11,13 @@ import za.ac.cput.domain.Country;
 import za.ac.cput.util.Helper;
 
 public class CityFactory {
-    public static City build (String id,String name, Country country){
+    public static City build (String id,String Name, Country country){
         Helper.checkStringParam("id", id);
-        Helper.checkStringParam("name", name);
+        Helper.checkStringParam("name", Name);
         Helper.checkIfObjectNull("Country",country);
-        Helper.isEmptyOrNull(name);
+        Helper.isEmptyOrNull(Name);
         Helper.checkId(id);
-        return new City.Builder().setId(id).setName(name).setCountry(country).build();
+        return new City.Builder().setId(id).setName(Name).setCountry(country).build();
 
     }
 }

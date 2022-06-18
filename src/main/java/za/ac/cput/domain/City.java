@@ -5,22 +5,32 @@ Date:june 2022
  */
 package za.ac.cput.domain;
 
-import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
+import com.sun.istack.NotNull;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.Objects;
 
+import static javax.persistence.CascadeType.MERGE;
+import static javax.persistence.CascadeType.PERSIST;
 
-@Embeddable
+
+//@Embeddable
 @Entity
 public class City implements Serializable {
 
-    @Id
+    @NotNull @Id
     private String id;
+    @NotNull
     private String name;
-    @Embedded
+
+    @ManyToOne(cascade = { PERSIST, MERGE })
+    @NotFound(action = NotFoundAction.IGNORE)
+    @NotNull
     private Country country;
 
     public City() {}
@@ -64,9 +74,6 @@ public class City implements Serializable {
     public int hashCode() {
         return Objects.hash(id, name, country);
     }
-
-
-
 
     public static class Builder{
         private String id, name;

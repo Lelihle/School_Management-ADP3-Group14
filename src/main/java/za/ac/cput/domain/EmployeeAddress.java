@@ -1,4 +1,12 @@
 package za.ac.cput.domain;
+
+/*
+Entity for the EmployeeAddress
+Author: Abdul Aleem Chilwan
+StudNo: 220108447
+Date:june 2022
+ */
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -73,7 +81,7 @@ public class EmployeeAddress implements Serializable {
         private String staffId;
         private Address address;
 
-        public Builder StaffId(String staffId, Address address) {
+        public Builder StaffId(String staffId) {
             this.staffId = staffId;
             return this;
         }

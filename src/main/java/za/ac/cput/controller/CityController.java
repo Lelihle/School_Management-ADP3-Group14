@@ -44,10 +44,10 @@ public class CityController {
         return ResponseEntity.ok(city);
     }
 
-    @DeleteMapping("delete/{id}")
-    public ResponseEntity<City> delete(@PathVariable String id) {
-        log.info("Delete request: {}", id);
-        this.iCityService.delete(id);
+    @DeleteMapping("delete/{city}")
+    public ResponseEntity<City> delete(@PathVariable City city) {
+        log.info("Delete request: {}", city);
+        this.iCityService.delete(city);
         return ResponseEntity.noContent().build();
     }
 
