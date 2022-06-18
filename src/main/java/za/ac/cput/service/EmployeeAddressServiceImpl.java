@@ -1,7 +1,13 @@
 package za.ac.cput.service;
-
+/*
+Implementation of the Service for the EmployeeAddress
+Author: Abdul Aleem Chilwan
+StudNo: 220108447
+Date:june 2022
+ */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.domain.Employee;
 import za.ac.cput.domain.EmployeeAddress;
 import za.ac.cput.repository.EmployeeAddressRepository;
 
@@ -21,8 +27,8 @@ public class EmployeeAddressServiceImpl implements IEmployeeAddressService {
     @Override
     public List<EmployeeAddress> findAll() {
         return this.repository.findAll();
-    }
 
+    }
     @Override
     public EmployeeAddress save(EmployeeAddress employeeAddress) {
         return this.repository.save(employeeAddress);
