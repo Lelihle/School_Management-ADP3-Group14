@@ -1,5 +1,10 @@
 package za.ac.cput.controller;
-
+/*
+Mogamad Taariq Phillips (220166153)
+ADP3 - June Assessment 2022
+Date: 17 June 2022
+School Management
+ */
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -64,5 +69,19 @@ public class EmployeeController {
     public ResponseEntity<List<Employee>> readAll(){
         List<Employee> list = this.repository.readAll();
         return ResponseEntity.ok(list);
+    }
+
+    //Question 5
+    @GetMapping("readEmployeeByEmail/{employeeEmail}")
+    public ResponseEntity<Optional<Employee>> getEmployeeByEmail(@RequestParam String email) {
+        log.info("readEmployeeByEmail request: {}", email);
+
+        try {
+            Optional<Employee> readEmployeeByEmail = repository.findEmployeeByEmail(email);
+            return ResponseEntity.ok(readEmployeeByEmail);
+
+        }catch(IllegalArgumentException e){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+        }
     }
 }

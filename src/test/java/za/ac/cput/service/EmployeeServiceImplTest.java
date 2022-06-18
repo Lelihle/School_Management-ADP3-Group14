@@ -84,7 +84,7 @@ class EmployeeServiceImplTest {
 
     }
 
-    @Order(3)
+    @Order(5)
     @Test
     void delete() {
         repository.deleteById(employee1.getStaffId());
@@ -104,5 +104,24 @@ class EmployeeServiceImplTest {
     @Test
     void readAll() {
         System.out.println(repository.findAll());
+    }
+
+    //Question 5
+    @Order(3)
+    @Test
+    void findEmployeeByEmail() {
+        repository.findEmployeeByEmail(employee1.getEmail());
+        repository.findEmployeeByEmail(employee2.getEmail());
+
+        assertAll(
+                () -> assertNotNull(employee1.getStaffId()),
+                () -> assertNotNull(employee2.getStaffId()),
+                () -> assertNotSame(employee1.getStaffId(),employee2.getStaffId()),
+                () -> assertNotEquals(employee1.getStaffId(),employee2.getStaffId())
+        );
+
+        System.out.println(employee1.getName());
+        System.out.println(employee2.getName());
+
     }
 }

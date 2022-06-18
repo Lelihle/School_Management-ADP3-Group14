@@ -9,7 +9,7 @@ public class NameFactory {
         Helper.checkStringParam("firstName", firstName);
         Helper.checkStringParam("surname", surname);
        // Helper.isEmptyOrNull(surname);
-        Helper.checkFirstName(firstName);
+      //  Helper.checkFirstName(firstName);
 
         return new Name.Builder().firstName(firstName)
                 .middleName(middleName)

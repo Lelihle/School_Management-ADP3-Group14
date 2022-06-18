@@ -9,17 +9,19 @@ import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
-//@Entity
+
 @Embeddable
+@Entity
 public class City implements Serializable {
 
-    @NotNull @Id private String id;
-    @NotNull private String name;
-    @Embedded private Country country;
+    @Id
+    private String id;
+    private String name;
+    @Embedded
+    private Country country;
 
     public City() {}
 
@@ -41,6 +43,14 @@ public class City implements Serializable {
         return country;
     }
 
+    @Override
+    public String toString() {
+        return "City{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", country=" + country +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -55,14 +65,7 @@ public class City implements Serializable {
         return Objects.hash(id, name, country);
     }
 
-    @Override
-    public String toString() {
-        return "City{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", country=" + country +
-                '}';
-    }
+
 
 
     public static class Builder{

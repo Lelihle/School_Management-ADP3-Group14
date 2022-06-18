@@ -31,4 +31,10 @@ public class Helper {
             throw new IllegalArgumentException("invalid details provided");
         return id;
     }
+
+    public static void checkIfObjectNull(String objectName, Object object){
+        if (object == null){
+            throw new IllegalArgumentException(String.format("%s is null", objectName));
+        }
+    }
 }
