@@ -1,3 +1,7 @@
+/*
+Author: Moegammad Tasreeq Adams : 216173027
+Date:june 2022
+ */
 package za.ac.cput.service;
 
 import za.ac.cput.domain.City;
@@ -15,7 +19,7 @@ public interface ICityService extends IService<City, String>{
     void delete(City city);
 
     List<City> findAll();
-
+  
     void delete(String s);
 
     List<City> findAllCities();
