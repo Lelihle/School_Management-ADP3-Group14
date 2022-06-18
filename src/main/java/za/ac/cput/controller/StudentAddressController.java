@@ -10,10 +10,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import za.ac.cput.domain.Employee;
 import za.ac.cput.domain.StudentAddress;
 import za.ac.cput.service.IStudentAddressService;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("school_management/student_address/")
@@ -57,6 +59,19 @@ public class StudentAddressController {
     public ResponseEntity<List<StudentAddress>> findAll() {
         List<StudentAddress> studentAddresses = this.iStudentAddressService.findAll();
         return ResponseEntity.ok(studentAddresses);
+    }
+
+    @GetMapping("readByAddressCityCountry/{studentCountry}")
+    public ResponseEntity<List<StudentAddress>> getAddressByCityCountry (@RequestParam String name) {
+        log.info("readByAddressCityCountry request: {}", name);
+
+        try {
+            List<StudentAddress> readByAddressCityCountry = iStudentAddressService.findByAddressCityCountryName(name);
+            return ResponseEntity.ok(readByAddressCityCountry);
+
+        }catch(IllegalArgumentException e){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+        }
     }
 
 }

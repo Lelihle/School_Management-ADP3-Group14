@@ -13,4 +13,6 @@ public interface IStudentService extends IService<Student,String> {
 
     List<Student> findAll();
     void deleteByID(String id);
+
+    List<Student> findStudentsByName_Surname(String surname);
 }

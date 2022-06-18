@@ -7,6 +7,7 @@ package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.domain.Student;
 import za.ac.cput.domain.StudentAddress;
 import za.ac.cput.repository.IStudentAddressRepository;
 import za.ac.cput.service.IStudentAddressService;
@@ -45,4 +46,8 @@ public class StudentAddressServiceImpl implements IStudentAddressService {
 
     //Read all operation
     public List<StudentAddress> findAll() {return this.repository.findAll();}
+
+    public List<StudentAddress> findByAddressCityCountryName(String name) {
+        return repository.findByAddressCityCountryName(name);
+    }
 }
