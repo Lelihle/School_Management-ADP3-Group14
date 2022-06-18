@@ -1,3 +1,7 @@
+/* StudentAddressServiceImplTest.java
+Author: Chante Lewis:216118395
+16/06/2022
+ */
 package za.ac.cput.service.impl;
 
 import org.junit.jupiter.api.MethodOrderer;
@@ -24,10 +28,10 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class StudentAddressServiceImplTest {
 
-    Country country = CountryFactory.build("20111", "South African");
-    City city = CityFactory.build("10111", "Saldanha", country);
-    Address address = AddressFactory.build("12", "seacrest", "104", "Flurry", 7395, city);
-    StudentAddress studentAddress = StudentAddressFactory.build("216118395", address);
+    private final Country country = CountryFactory.build("20111", "South African");
+    private final  City city = CityFactory.build("10111", "Saldanha", country);
+    private final Address address = AddressFactory.build("12", "seacrest", "104", "Flurry", 7395, city);
+    private final StudentAddress studentAddress = StudentAddressFactory.build("216118395", address);
     @Autowired
     private IStudentAddressService service;
 
@@ -54,7 +58,7 @@ public class StudentAddressServiceImplTest {
     }
 
     @Test
-    @Order(3)
+    @Order(4)
     void delete() {
         this.service.delete(this.studentAddress);
         List<StudentAddress> studentAddressList = this.service.findAll();
@@ -64,7 +68,7 @@ public class StudentAddressServiceImplTest {
 
 
     @Test
-    @Order(4)
+    @Order(3)
     void findAll() {
         List<StudentAddress> studentAddressList = this.service.findAll();
         assertEquals(1, studentAddressList.size());
