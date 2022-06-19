@@ -11,15 +11,14 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Embeddable;
-
 import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.CascadeType.PERSIST;
 
 @Embeddable
 public class Address implements Serializable {
 
-   @NotNull private String unitNumber;
-   @NotNull private String complexName;
+   @NotNull private String unitNumber; //optional attribute
+   @NotNull private String complexName; //optional attribute
    @NotNull private String streetNumber; //mandatory attribute
    @NotNull private String streetName; //mandatory attribute
    @NotNull private int postalCode; //mandatory attribute
