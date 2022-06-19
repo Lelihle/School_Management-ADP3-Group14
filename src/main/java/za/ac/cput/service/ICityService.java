@@ -10,4 +10,6 @@ public interface ICityService extends IService<City, String>{
     void delete(City city);
 
     List<City> findAll();
+
+    List<City> findAllCities();
 }
